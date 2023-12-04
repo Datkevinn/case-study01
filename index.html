@@ -94,6 +94,22 @@
         let maxTotalSalary = employeeList[employeeList.length - 1].totalSalary;
         return employeeList.filter((e) => e.totalSalary === maxTotalSalary);
       }
+      function editEmployeeInfo(employeeList) {
+        let editingId = Number(prompt(`Enter employee id to edit: `));
+        let editingEmployee = employeeList.filter((e) => e.id === editingId);
+        editingEmployee.map((e) => {
+          e.fullName = prompt("Enter new full name: ");
+          e.baseSalary = Number(prompt("Enter new base salary: "));
+          e.productSalary = 50;
+          e.productQuantity = Number(prompt("Enter new product quantity: "));
+          return e;
+        });
+        return employeeList;
+      }
+      function removeEmployee(employeeList) {
+        let removingId = Number(prompt(`Enter employee id to remove: `));
+        return employeeList.filter((e) => e.id !== removingId);
+      }
       main();
     </script>
   </body>
